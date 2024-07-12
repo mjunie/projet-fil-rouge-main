@@ -1,0 +1,51 @@
+partie docker
+
+Pull the Odoo Image
+
+First, ensure you have pulled the Odoo image:
+docker pull odoo
+
+Pull the PostgreSQL Image
+
+You also need to pull the PostgreSQL image:
+docker pull postgres
+
+Run PostgreSQL Container
+
+Run the PostgreSQL container with the necessary environment variables:
+docker run -d \
+  --name db \
+  -e POSTGRES_DB=postgres \
+  -e POSTGRES_PASSWORD=odoo \
+  -e POSTGRES_USER=odoo \
+  -v odoo-db-data:/var/lib/postgresql/data \
+  postgres
+
+
+Run Odoo Container
+
+Run the Odoo container, linking it to the PostgreSQL container:
+docker run -d \
+  --name odoo \
+  --link db:db \
+  -p 8069:8069 \
+  -v odoo-web-data:/var/lib/odoo \
+  odoo
+
+Pull the Image
+
+First, ensure you have pulled the dpage/pgadmin4 image:
+docker pull dpage/pgadmin4
+Run the Container
+
+Next, you can run the container using the docker run command. You need to set the default email and password for pgAdmin. Here’s an example:
+docker run -d \
+  --name pgadmin4 \
+  -e PGADMIN_DEFAULT_EMAIL=admin@admin.com \
+  -e PGADMIN_DEFAULT_PASSWORD=admin \
+  -p 8081:80 \
+  dpage/pgadmin4
+
+
+sudo docker build -t ic-webapp:1.0 .
+sudo docker run -d -p 8080:8080  --name test-ic-webapp  ic-webapp:1.0
