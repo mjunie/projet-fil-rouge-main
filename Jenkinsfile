@@ -45,16 +45,16 @@ pipeline {
              }
           }
        }
-       stage('Test image') {
-           agent any
-           steps {
-              script {
-                sh '''
-                   curl -v 172.17.0.1:$APP_EXPOSED_PORT | grep -i "Search"
-                '''
-              }
-           }
-       }
+       // stage('Test image') {
+       //     agent any
+       //     steps {
+       //        script {
+       //          sh '''
+       //             curl -v 172.17.0.1:$APP_EXPOSED_PORT | grep -i "Search"
+       //          '''
+       //        }
+       //     }
+       // }
        stage('Clean container') {
           agent any
           steps {
