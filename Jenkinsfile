@@ -3,7 +3,7 @@
 
 pipeline {
     environment {
-        IMAGE_NAME = "file-rouge"
+        IMAGE_NAME = "projet-file-rouge"
         APP_EXPOSED_PORT = "8081"
         IMAGE_TAG = "latest"
         STAGING = "chocoapp-staging"
