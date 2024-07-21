@@ -4,7 +4,7 @@
 pipeline {
     environment {
         IMAGE_NAME = "file-rouge"
-        APP_EXPOSED_PORT = "8080"
+        APP_EXPOSED_PORT = "8081"
         IMAGE_TAG = "latest"
         STAGING = "chocoapp-staging"
         PRODUCTION = "chocoapp-prod"
