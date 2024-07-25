@@ -23,7 +23,7 @@ COPY . .
 ENV ODOO_URL="http://localhost:8069/web/database/selector" \
     PGADMIN_URL="http://localhost:8081/login?next=/"
 
-# EXPOSE 8080
+EXPOSE 8080
 # Define a volume for persistent storage
 VOLUME /data
 # Specify the command to run the application
